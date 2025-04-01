@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco de Questões - {{ arquivo }}</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script defer src="/static/script.js"></script> <!-- Importando o JavaScript -->
+</head>
+<body>
+    <h1>Banco de Questões - {{ arquivo }}</h1>
+
+    <form method="POST">
+        {% csrf_token %}  <!-- Token CSRF do Django -->
+        {% for questao in questoes %}
+            <div class="container">
+                <!-- Questão -->
+                <div class="questao">
+                    <h2>Questão {{ questao.numero }}</h2>
+                    <p><strong>Contexto:</strong> {{ questao.contexto }}</p>
+                    <p><strong>Pergunta:</strong> {{ questao.enunciado }}</p>
+                    <ul>
+                        <li><strong>A)</strong> {{ questao.A }}</li>
+                        <li><strong>B)</strong> {{ questao.B }}</li>
+                        <li><strong>C)</strong> {{ questao.C }}</li>
+                        <li><strong>D)</strong> {{ questao.D }}</li>
+                        <li><strong>E)</strong> {{ questao.E }}</li>
+                    </ul>
+                </div>
+
+                <!-- Menu suspenso para classificação -->
+                <div class="classificacao">
+                    <button type="button" class="classificar-btn" onclick="toggleMenu(this)">Classificar</button>
+                    <div class="menu-classificacao">
+                        <button type="button" onclick="classificar({{ questao.numero }}, 'Classe 1')">Classe 1</button>
+                        <button type="button" onclick="classificar({{ questao.numero }}, 'Classe 2')">Classe 2</button>
+                        <button type="button" onclick="classificar({{ questao.numero }}, 'Classe 3')">Classe 3</button>
+                        <button type="button" onclick="classificar({{ questao.numero }}, 'Classe 4')">Classe 4</button>
+                        <button type="button" onclick="classificar({{ questao.numero }}, 'Classe 5')">Classe 5</button>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        {% endfor %}
+    </form>
+
+    <!-- Botão de Voltar -->
+    <div class="container">
+        <a href="{% url 'select_csv' ano %}" class="btn-back">⬅ Voltar</a>
+    </div>
+
+</body>
+</html>

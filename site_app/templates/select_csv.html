@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha o Tema</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Escolha o Tema</h1>
+    <div class="container">
+        <a href="{% url 'visualizar_csv' ano 'ciencias-humanas.csv' %}" class="btn">Ciências Humanas</a>
+        <a href="{% url 'visualizar_csv' ano 'matematica.csv' %}" class="btn">Matemática</a>
+        <a href="{% url 'visualizar_csv' ano 'ciencias-natureza.csv' %}" class="btn">Ciências da Natureza</a>
+        <a href="{% url 'visualizar_csv' ano 'linguagens.csv' %}" class="btn">Linguagens</a>
+    </div>
+
+    <!-- Botão de Voltar -->
+    <div class="container">
+        <a href="{% url 'index' %}" class="btn-back">⬅ Voltar</a>
+    </div>
+</body>
+</html>
