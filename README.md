@@ -20,6 +20,12 @@ Diante disso, este projeto visa desenvolver um website com um banco de questões
 - Promover maior interação do PET C. S. Penedo com a comunidade interna e externa via parceria para construção e uso do site.
 
 
+## 🛠️Clonando o repositório
+
+Perfeito! A parte que você quer inserir pode ficar bem clara e didática se estruturarmos assim, com uma explicação breve seguida de comandos diretos. Aqui está uma sugestão de redação para a seção **🛠️Clonando o repositório** que combina bem com o estilo do restante do seu README:
+
+---
+
 ## 📂Clonando o repositório
 
 Antes de seguir para a **Configuração do Ambiente de Desenvolvimento**, é necessário clonar este repositório para a sua máquina. Isso permitirá que você tenha uma cópia local do projeto, podendo executá-lo, explorar o código e até fazer alterações.
