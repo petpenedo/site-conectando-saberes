@@ -5,19 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banco de Questões - {{ arquivo }}</title>
     <link rel="stylesheet" href="/static/style.css">
-    <script defer src="/static/script.js"></script> <!-- Importando o JavaScript -->
+    <script defer src="/static/script.js"></script>
 </head>
 <body>
     <h1>Banco de Questões - {{ arquivo }}</h1>
 
+    <input type="hidden" id="anoAtual" value="{{ ano }}">
+    <input type="hidden" id="areaAtual" value="{{ area_conhecimento }}">
+
     <form method="POST">
-        {% csrf_token %}  <!-- Token CSRF do Django -->
+        {% csrf_token %}
         {% for questao in questoes %}
             <div class="container">
-                <!-- Questão -->
                 <div class="questao">
                     <h2>Questão {{ questao.numero }}</h2>
-                    <p><strong>Contexto:</strong> {{ questao.contexto }}</p>
+                    <p><strong>N°:</strong> {{ questao.contexto }}</p>
                     <p><strong>Pergunta:</strong> {{ questao.enunciado }}</p>
                     <ul>
                         <li><strong>A)</strong> {{ questao.A }}</li>
@@ -26,9 +28,9 @@
                         <li><strong>D)</strong> {{ questao.D }}</li>
                         <li><strong>E)</strong> {{ questao.E }}</li>
                     </ul>
+                    <p><strong>Resposta:</strong> {{ questao.resposta }}</p>
                 </div>
 
-                <!-- Menu suspenso para classificação -->
                 <div class="classificacao">
                     <button type="button" class="classificar-btn" onclick="toggleMenu(this)">Classificar</button>
                     <div class="menu-classificacao">
@@ -44,10 +46,8 @@
         {% endfor %}
     </form>
 
-    <!-- Botão de Voltar -->
     <div class="container">
         <a href="{% url 'select_csv' ano %}" class="btn-back">⬅ Voltar</a>
     </div>
-
 </body>
 </html>

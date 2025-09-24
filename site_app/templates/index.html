@@ -8,9 +8,10 @@
 </head>
 <body>
     <h1>SITE: Conectando Saberes</h1>
-    <div class="container">
-        <a href="{% url 'select_csv' 2009 %}" class="btn">2009</a>
-        <a href="{% url 'select_csv' 2010 %}" class="btn">2010</a>
+    <div class="container" style="flex-wrap: wrap; justify-content: center;">
+        {% for ano in anos %}
+            <a href="{% url 'select_csv' ano %}" class="btn">{{ ano }}</a>
+        {% endfor %}
     </div>
 </body>
 </html>
